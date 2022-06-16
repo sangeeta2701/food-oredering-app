@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_ordering/screens/loginPage.dart';
+import 'package:food_ordering/screens/welcome_page.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -12,7 +13,8 @@ class SignUpPage extends StatelessWidget {
         backgroundColor: Colors.black,
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => WelcomePage()));
           },
           icon: Icon(
             Icons.arrow_back_ios,
@@ -132,23 +134,60 @@ class SignUpPage extends StatelessWidget {
                     SizedBox(
                       height: 40,
                     ),
-                    SizedBox(
-                      height: 45,
-                      width: 300,
-                      child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            color: Colors.black,
-                            width: 1,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 45,
+                          width: 100,
+                          child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                color: Colors.green,
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            color: Colors.white,
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()));
+                            },
+                            child: Text(
+                              "SignUp",
+                              style: TextStyle(color: Colors.green),
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(30),
                         ),
-                        color: Colors.grey,
-                        onPressed: () {},
-                        child: Text(
-                          "SignUp",
+                        SizedBox(
+                          width: 40,
                         ),
-                      ),
+                        SizedBox(
+                          height: 45,
+                          width: 100,
+                          child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                color: Colors.black38,
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            color: Colors.grey,
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => WelcomePage()));
+                            },
+                            child: Text(
+                              "Cancel",
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 20,
@@ -171,7 +210,7 @@ class SignUpPage extends StatelessWidget {
                                 TextSpan(
                                   text: "Login",
                                   style: TextStyle(
-                                    color: Colors.blue,
+                                    color: Colors.green,
                                     fontSize: 18,
                                   ),
                                 ),
@@ -187,7 +226,7 @@ class SignUpPage extends StatelessWidget {
                               },
                               icon: Icon(
                                 Icons.arrow_forward,
-                                color: Colors.blue,
+                                color: Colors.green,
                                 size: 30,
                               ))
                         ],

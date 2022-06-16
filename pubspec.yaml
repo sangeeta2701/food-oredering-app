@@ -61,6 +61,7 @@ flutter:
   assets:
     - assets/logo3.png
     - assets/blogo.PNG
+    - assets/logo.png
 
   #   - images/a_dot_ham.jpeg
 

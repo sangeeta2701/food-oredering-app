@@ -11,7 +11,7 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: Column(
         children: [
           Expanded(
@@ -20,7 +20,7 @@ class _WelcomePageState extends State<WelcomePage> {
               // width: 150,
               child: Center(
                 child: Image.asset(
-                  "assets/blogo.PNG",
+                  "assets/logo.png",
                   fit: BoxFit.cover,
                 ),
               ),
@@ -44,8 +44,14 @@ class _WelcomePageState extends State<WelcomePage> {
                   ),
                   Column(
                     children: [
-                      Text("Order food from our restaurant and"),
-                      Text("Make reservation in real- time"),
+                      Text(
+                        "Order food from our restaurant and",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        "Make reservation in real- time",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ],
                   ),
                   Container(
@@ -58,7 +64,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           color: Colors.green,
                           width: 2,
                         ),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(30),
                       ),
                       onPressed: () {
                         Navigator.push(
@@ -84,7 +90,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           color: Colors.green,
                           width: 2,
                         ),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(30),
                       ),
                       onPressed: () {
                         Navigator.push(
