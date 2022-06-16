@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_ordering/screens/loginPage.dart';
+import 'package:food_ordering/screens/sign_up.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -85,7 +86,12 @@ class _WelcomePageState extends State<WelcomePage> {
                         ),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpPage()));
+                      },
                       child: Text(
                         "SignUp",
                         style: TextStyle(

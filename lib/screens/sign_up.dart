@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_ordering/screens/sign_up.dart';
+import 'package:food_ordering/screens/loginPage.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 15.0),
               child: Text(
-                "LogIn",
+                "SignUp",
                 style: TextStyle(
                     fontSize: 40,
                     color: Colors.white,
@@ -62,11 +62,34 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: TextFormField(
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.email_outlined,
+                            color: Colors.white,
+                          ),
+                          hintText: "Email",
+                          hintStyle: TextStyle(
+                            color: Colors.white,
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: TextFormField(
+                        obscureText: true,
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           prefixIcon: Icon(
@@ -84,7 +107,30 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 50,
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: TextFormField(
+                        obscureText: true,
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Colors.white,
+                          ),
+                          hintText: "Confirm Password",
+                          hintStyle: TextStyle(
+                            color: Colors.white,
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 40,
                     ),
                     SizedBox(
                       height: 45,
@@ -100,7 +146,7 @@ class LoginPage extends StatelessWidget {
                         color: Colors.grey,
                         onPressed: () {},
                         child: Text(
-                          "LogIn",
+                          "SignUp",
                         ),
                       ),
                     ),
@@ -116,14 +162,14 @@ class LoginPage extends StatelessWidget {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: 'New User?  ',
+                                  text: 'Already Have an Account? ',
                                   style: TextStyle(
                                     color: Colors.white70,
                                     fontSize: 18,
                                   ),
                                 ),
                                 TextSpan(
-                                  text: "SignUp",
+                                  text: "Login",
                                   style: TextStyle(
                                     color: Colors.blue,
                                     fontSize: 18,
@@ -132,15 +178,12 @@ class LoginPage extends StatelessWidget {
                               ],
                             ),
                           ),
-                          SizedBox(
-                            width: 120,
-                          ),
                           IconButton(
                               onPressed: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => SignUpPage()));
+                                        builder: (context) => LoginPage()));
                               },
                               icon: Icon(
                                 Icons.arrow_forward,
