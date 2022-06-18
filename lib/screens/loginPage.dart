@@ -54,7 +54,7 @@ class LoginPage extends StatelessWidget {
                             Icons.person_outline_outlined,
                             color: Colors.white,
                           ),
-                          hintText: "Username",
+                          hintText: "Email",
                           hintStyle: TextStyle(
                             color: Colors.white,
                           ),

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "230562196351",
+    "project_id": "foodshades-app",
+    "storage_bucket": "foodshades-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230562196351:android:b5e7282849553f8401084a",
+        "android_client_info": {
+          "package_name": "com.example.food_ordering"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230562196351-6fr8ncgv4g1ol600p0n2punst8kp8gcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfM1lIG1i96AwvqohzHuX87-ppBNDTNTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "230562196351-6fr8ncgv4g1ol600p0n2punst8kp8gcp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
