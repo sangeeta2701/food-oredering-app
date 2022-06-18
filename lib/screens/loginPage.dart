@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_ordering/screens/home_page.dart';
 import 'package:food_ordering/screens/sign_up.dart';
 import 'package:food_ordering/screens/welcome_page.dart';
 
@@ -102,7 +103,12 @@ class LoginPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),
                         ),
                         color: Colors.white,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage()));
+                        },
                         child: Text(
                           "LogIn",
                           style: TextStyle(color: Colors.green),
