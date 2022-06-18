@@ -11,6 +11,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   UserCredential? credential;
+  bool loading = false;
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();
 
   TextEditingController firstName = TextEditingController();
@@ -55,6 +56,9 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
         ),
       );
+      setState(() {
+        loading = false;
+      });
     }
   }
 
@@ -215,6 +219,9 @@ class _SignUpPageState extends State<SignUpPage> {
                             if (value.length > 25) {
                               return "Password should be less than 25 characters";
                             } else {
+                              setState(() {
+                                loading = true;
+                              });
                               sendData();
                             }
                           },
