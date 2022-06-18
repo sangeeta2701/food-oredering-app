@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_ordering/screens/loginPage.dart';
 import 'package:food_ordering/screens/welcome_page.dart';
@@ -8,7 +10,53 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  UserCredential? credential;
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();
+
+  TextEditingController firstName = TextEditingController();
+  TextEditingController lastName = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  Future sendData() async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email.text, password: password.text);
+
+      await FirebaseFirestore.instance
+          .collection('userData')
+          .doc(credential.user!.uid)
+          .set({
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": email,
+        "userid": credential.user!.uid,
+        "password": password,
+      });
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("The account already exists for that email."),
+          ),
+        );
+      } else if (e.code == 'wrong-password') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Wrong password provided for that user."),
+          ),
+        );
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            e.toString(),
+          ),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +103,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
+                          controller: firstName,
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                             prefixIcon: Icon(
@@ -81,6 +130,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
+                          controller: lastName,
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                             prefixIcon: Icon(
@@ -107,6 +157,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
+                          controller: email,
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                             prefixIcon: Icon(
@@ -138,6 +189,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextFormField(
+                          controller: password,
                           obscureText: true,
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
@@ -163,7 +215,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             if (value.length > 25) {
                               return "Password should be less than 25 characters";
                             } else {
-                              return null;
+                              sendData();
                             }
                           },
                         ),
@@ -195,7 +247,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                 } else {
                                   final snackBar = SnackBar(
                                       content: Text("Unsuccessful SignUp"));
-                                  Scaffold.of(context).showSnackBar(snackBar);
+                                  // Scaffold.of(context).showSnackBar(snackBar);
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
                                 }
                               },
                               child: Text(

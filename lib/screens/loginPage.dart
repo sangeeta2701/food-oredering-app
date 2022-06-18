@@ -70,6 +70,7 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: TextFormField(
+                        obscureText: true,
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           prefixIcon: Icon(
