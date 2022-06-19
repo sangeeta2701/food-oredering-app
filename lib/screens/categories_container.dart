@@ -11,7 +11,7 @@ Widget categoriesContainer(String image, String name) {
           image: DecorationImage(
             image: AssetImage(image),
           ),
-          color: Colors.grey,
+          color: Color(0xff3a3e3e),
           borderRadius: BorderRadius.circular(15),
         ),
       ),

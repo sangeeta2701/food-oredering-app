@@ -16,6 +16,7 @@ Widget bottomContainer(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CircleAvatar(
+          backgroundColor: Colors.black38,
           backgroundImage: AssetImage(image),
           radius: 60,
         ),
