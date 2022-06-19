@@ -10,6 +10,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Widget drawerItem(String name, IconData icon) {
+    return ListTile(
+      leading: Icon(
+        icon,
+        color: Colors.white,
+      ),
+      title: Text(
+        name,
+        style: TextStyle(fontSize: 20, color: Colors.white),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +31,8 @@ class _HomePageState extends State<HomePage> {
           color: Color(0xff2b2b2b),
           child: SafeArea(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 UserAccountsDrawerHeader(
                   decoration: BoxDecoration(
@@ -31,7 +46,24 @@ class _HomePageState extends State<HomePage> {
                   ),
                   accountName: Text("Sangeeta Gupta"),
                   accountEmail: Text("abc123@gmail.com"),
-                )
+                ),
+                drawerItem("Profile", Icons.person),
+                drawerItem("Cart", Icons.shopping_cart),
+                drawerItem("Order", Icons.card_travel),
+                drawerItem("About", Icons.add_circle),
+                Divider(
+                  thickness: 1,
+                  color: Colors.white,
+                ),
+                Text(
+                  "Communicate",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400),
+                ),
+                drawerItem("Change", Icons.lock),
+                drawerItem("Log out", Icons.logout),
               ],
             ),
           ),
