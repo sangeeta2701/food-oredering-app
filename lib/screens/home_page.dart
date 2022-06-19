@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_ordering/screens/categories_container.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -44,30 +45,28 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Column(
-            children: [
-              Container(
-                height: 80,
-                width: 80,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/pizza1.png"),
-                  ),
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "All",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-              )
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                categoriesContainer("assets/pizza1.png", "All"),
+                categoriesContainer("assets/pizza4.jpg", "Pizza"),
+                categoriesContainer("assets/burger.png", "Burger"),
+                categoriesContainer("assets/drink.png", "Drinks"),
+                categoriesContainer("assets/momos.png", "Momos"),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 250,
+            width: 200,
+            decoration: BoxDecoration(
+              color: Color(0xff3a3e3e),
+              borderRadius: BorderRadius.circular(20),
+            ),
           ),
         ],
       ),
