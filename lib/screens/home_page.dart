@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_ordering/screens/bottom_container.dart';
 import 'package:food_ordering/screens/categories_container.dart';
 
 class HomePage extends StatefulWidget {
@@ -60,13 +61,19 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: 20,
           ),
-          Container(
-            height: 250,
-            width: 200,
-            decoration: BoxDecoration(
-              color: Color(0xff3a3e3e),
-              borderRadius: BorderRadius.circular(20),
-            ),
+          GridView.count(
+            shrinkWrap: false,
+            crossAxisCount: 2,
+            primary: false,
+            childAspectRatio: 0.8,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20,
+            children: [
+              bottomContainer("assets/pizza4.jpg", "23", "Pizza"),
+              bottomContainer("assets/burger.png", "12", "Burger"),
+              bottomContainer("assets/drink.png", "30", "Mozito"),
+              bottomContainer("assets/momos.png", "28", "Momos"),
+            ],
           ),
         ],
       ),
