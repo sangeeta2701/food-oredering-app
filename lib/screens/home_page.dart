@@ -13,9 +13,32 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Container(
+          color: Color(0xff2b2b2b),
+          child: SafeArea(
+            child: Column(
+              children: [
+                UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage("assets/bg.jpg"),
+                    ),
+                  ),
+                  currentAccountPicture: CircleAvatar(
+                    backgroundImage: AssetImage("assets/profile.jpg"),
+                  ),
+                  accountName: Text("Sangeeta Gupta"),
+                  accountEmail: Text("abc123@gmail.com"),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
       appBar: AppBar(
         elevation: 0,
-        leading: Icon(Icons.sort),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
@@ -70,10 +93,10 @@ class _HomePageState extends State<HomePage> {
               crossAxisSpacing: 20,
               mainAxisSpacing: 20,
               children: [
-                bottomContainer("assets/pizza1.png", "23", "Pizza"),
-                bottomContainer("assets/burger.png", "12", "Burger"),
-                bottomContainer("assets/mojito.jpg", "30", "Mojito"),
-                bottomContainer("assets/momos.png", "28", "Momos"),
+                bottomContainer("assets/pizza1.png", "\$23", "Pizza"),
+                bottomContainer("assets/burger.png", "\$12", "Burger"),
+                bottomContainer("assets/mojito.jpg", "\$30", "Mojito"),
+                bottomContainer("assets/momos.png", "\$28", "Momos"),
               ],
             ),
           ),
