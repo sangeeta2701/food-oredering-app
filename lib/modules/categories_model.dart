@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class CategoriesModle {
+class CategoriesModel {
   final String image;
   final String name;
 
-  CategoriesModle({required this.image, required this.name});
+  CategoriesModel({required this.image, required this.name});
 }
